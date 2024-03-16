@@ -10,6 +10,7 @@ import { Item } from 'src/app/interfaces/iItem';
 export class ItemComponent implements OnInit, OnChanges {
 
   @Input() item!: Item;
+  // @Output(): comunicacao de filho para pai
   @Output() emitindoItemParaEditar = new EventEmitter<Item>();
   
   faPen = faPen;

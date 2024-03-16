@@ -11,6 +11,7 @@ export class AppComponent implements OnInit{
   title = 'app-lista-de-compras';
   //abaixo o ! indica que iniciara vazia
   listaDeCompra!: Array<Item>
+  itemParaSerEditado!: Item;
 
   constructor(private listaService: ListaDeCompraService) { }
 
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit{
 
   editarItem(item: Item) {
     console.log(item);
+    this.itemParaSerEditado = item;
   }
 
 }
