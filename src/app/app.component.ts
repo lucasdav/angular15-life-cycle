@@ -30,6 +30,10 @@ export class AppComponent implements OnInit, DoCheck{
     this.listaDeCompra.splice(index, 1);
   }
 
+  limparLista() {
+    this.listaDeCompra = [];
+  }
+
   // DoCheck escuta todas as atualizações/alterações
   ngDoCheck(): void {
     console.log('DoCheck foi chamado')
