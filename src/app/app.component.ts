@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { Item } from './interfaces/iItem';
 import { ListaDeCompraService } from './service/lista-de-compra.service';
 
@@ -7,7 +7,7 @@ import { ListaDeCompraService } from './service/lista-de-compra.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, DoCheck{
   title = 'app-lista-de-compras';
   //abaixo o ! indica que iniciara vazia
   listaDeCompra!: Array<Item>
@@ -23,6 +23,12 @@ export class AppComponent implements OnInit{
   editarItem(item: Item) {
     console.log(item);
     this.itemParaSerEditado = item;
+  }
+
+  // DoCheck escuta todas as atualizações/alterações
+  ngDoCheck(): void {
+    console.log('DoCheck foi chamado')
+    this.listaService.atualizarLocalStorage();
   }
 
 }
